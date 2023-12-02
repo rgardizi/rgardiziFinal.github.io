@@ -148,6 +148,9 @@
     </footer>
 
     <script>
+        <!-- ... Previous code ... -->
+
+    <script>
         // JavaScript for changing background color on scroll
         document.addEventListener('scroll', function() {
             var scrollPosition = window.scrollY;
@@ -155,7 +158,10 @@
             var body = document.querySelector('body');
             var footer = document.querySelector('footer');
 
-            if (scrollPosition > 50) {
+            // Set a threshold scroll position to avoid temporary color change
+            var threshold = document.getElementById('capabilities').offsetTop;
+
+            if (scrollPosition > threshold) {
                 header.style.backgroundColor = '#007bff';
                 body.style.backgroundColor = '#f4f4f4';
             } else {
