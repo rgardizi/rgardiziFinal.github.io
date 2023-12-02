@@ -130,6 +130,8 @@
         <p>However, the responsible and ethical use of ChatGPT is crucial to address potential challenges and ensure positive societal impact.</p>
     </section>
 
+    <!-- ... Previous code ... -->
+
     <section id="difficulty">
         <h2>Challenges in Using ChatGPT Effectively</h2>
         <p>Effectively using ChatGPT comes with its complexities:</p>
@@ -156,10 +158,15 @@
             if (scrollPosition > 50) {
                 header.style.backgroundColor = '#007bff';
                 body.style.backgroundColor = '#f4f4f4';
-                footer.style.position = 'relative'; // Adjusted position
             } else {
                 header.style.backgroundColor = '#141414';
                 body.style.backgroundColor = '#f8f8f8';
+            }
+
+            // Check if the user has scrolled to the bottom
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                footer.style.position = 'relative';
+            } else {
                 footer.style.position = 'fixed';
             }
         });
