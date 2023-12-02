@@ -5,18 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChatGPT Information</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to an external CSS file for better organization -->
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Helvetica Neue', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f8f8f8;
             color: #333;
+            transition: background-color 0.3s ease;
         }
 
         header {
-            background-color: #007bff;
+            background-color: #141414;
             color: #fff;
             padding: 1em;
             text-align: center;
@@ -32,7 +32,8 @@
         }
 
         h1, h2, h3 {
-            color: #007bff;
+            color: #333;
+            transition: color 0.3s ease;
         }
 
         p {
@@ -50,7 +51,7 @@
         }
 
         footer {
-            background-color: #007bff;
+            background-color: #141414;
             color: #fff;
             text-align: center;
             padding: 1em 0;
@@ -86,6 +87,23 @@
     <footer>
         <p>&copy; 2023 ChatGPT Information. All rights reserved.</p>
     </footer>
+
+    <script>
+        // JavaScript for changing background color on scroll
+        document.addEventListener('scroll', function() {
+            var scrollPosition = window.scrollY;
+            var header = document.querySelector('header');
+            var body = document.querySelector('body');
+
+            if (scrollPosition > 50) {
+                header.style.backgroundColor = '#007bff';
+                body.style.backgroundColor = '#f4f4f4';
+            } else {
+                header.style.backgroundColor = '#141414';
+                body.style.backgroundColor = '#f8f8f8';
+            }
+        });
+    </script>
 
 </body>
 
