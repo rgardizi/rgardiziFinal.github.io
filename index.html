@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        /* Your styles for the page go here */
-
         body {
             font-family: 'Helvetica Neue', sans-serif;
             margin: 0;
@@ -24,6 +22,10 @@
             color: #fff;
             padding: 1em;
             text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
 
         section {
@@ -62,6 +64,8 @@
             position: fixed;
             width: 100%;
             bottom: 0;
+            z-index: 1000;
+            display: none;
         }
 
         canvas {
@@ -69,8 +73,6 @@
             margin: 20px auto;
             max-width: 100%;
         }
-
-        /* Add more styles as needed */
     </style>
 </head>
 
@@ -122,17 +124,11 @@
         </ul>
     </section>
 
-    <!-- ... Previous code ... -->
-
     <section id="why-matters">
         <h2>Why It Matters</h2>
         <p>The applications of ChatGPT are significant in streamlining various processes and enhancing user experiences. The efficiency and versatility it brings to industries such as customer support, content generation, and legal documentation contribute to improved productivity and innovation.</p>
         <p>However, the responsible and ethical use of ChatGPT is crucial to address potential challenges and ensure positive societal impact.</p>
     </section>
-
-    <!-- ... Previous code ... -->
-
-<!-- ... Previous code ... -->
 
     <section id="difficulty">
         <h2>Challenges in Using ChatGPT Effectively</h2>
@@ -145,31 +141,33 @@
         </ul>
     </section>
 
-    <footer>
-        <p>&copy; 2023 ChatGPT Insights. All rights reserved.</p>
-    </footer>
-
     <script>
-        // JavaScript for changing background color on scroll
+        // JavaScript for changing background color on scroll and displaying footer
         document.addEventListener('scroll', function() {
             var scrollPosition = window.scrollY;
             var header = document.querySelector('header');
-            var body = document.querySelector('body');
             var footer = document.querySelector('footer');
 
-            if (scrollPosition > 50) {
+            // Set a threshold scroll position for header color change
+            var thresholdHeader = document.getElementById('capabilities').offsetTop;
+
+            if (scrollPosition > thresholdHeader) {
                 header.style.backgroundColor = '#007bff';
-                body.style.backgroundColor = '#f4f4f4';
             } else {
                 header.style.backgroundColor = '#141414';
-                body.style.backgroundColor = '#f8f8f8';
             }
 
             // Check if the user has scrolled to the bottom
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-                footer.style.position = 'relative';
+            var scrollHeight = Math.max(
+                document.body.scrollHeight, document.documentElement.scrollHeight,
+                document.body.offsetHeight, document.documentElement.offsetHeight,
+                document.body.clientHeight, document.documentElement.clientHeight
+            );
+
+            if ((window.innerHeight + window.scrollY) >= scrollHeight) {
+                footer.style.display = 'block';
             } else {
-                footer.style.position = 'fixed';
+                footer.style.display = 'none';
             }
         });
 
@@ -211,4 +209,3 @@
 </body>
 
 </html>
-
