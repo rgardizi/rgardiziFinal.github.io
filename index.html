@@ -122,6 +122,8 @@
         </ul>
     </section>
 
+    <!-- ... Previous code ... -->
+
     <section id="why-matters">
         <h2>Why It Matters</h2>
         <p>The applications of ChatGPT are significant in streamlining various processes and enhancing user experiences. The efficiency and versatility it brings to industries such as customer support, content generation, and legal documentation contribute to improved productivity and innovation.</p>
@@ -149,13 +151,16 @@
             var scrollPosition = window.scrollY;
             var header = document.querySelector('header');
             var body = document.querySelector('body');
+            var footer = document.querySelector('footer');
 
             if (scrollPosition > 50) {
                 header.style.backgroundColor = '#007bff';
                 body.style.backgroundColor = '#f4f4f4';
+                footer.style.position = 'relative'; // Adjusted position
             } else {
                 header.style.backgroundColor = '#141414';
                 body.style.backgroundColor = '#f8f8f8';
+                footer.style.position = 'fixed';
             }
         });
 
