@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChatGPT Information</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
             font-family: 'Helvetica Neue', sans-serif;
@@ -59,6 +61,12 @@
             width: 100%;
             bottom: 0;
         }
+
+        canvas {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+        }
     </style>
 </head>
 
@@ -70,18 +78,24 @@
 
     <section>
         <h2>Welcome to ChatGPT</h2>
-        <p>ChatGPT is an advanced language model created by OpenAI. It has a wide range of capabilities and can be used for various applications.</p>
+        <p>ChatGPT is an advanced language model created by OpenAI. It leverages the power of deep learning to understand and generate human-like text based on the input it receives. Here's an in-depth look at its capabilities:</p>
 
-        <h2>Key Features</h2>
-        <ul>
-            <li>Conversational AI</li>
-            <li>Natural Language Understanding</li>
-            <li>Contextual Responses</li>
-            <li>Information Retrieval</li>
-        </ul>
+        <h2>Conversational AI</h2>
+        <p>ChatGPT excels in natural language conversations. Whether you're engaging in casual chats or seeking assistance, ChatGPT can provide contextually relevant and coherent responses.</p>
 
-        <h2>Use Cases</h2>
-        <p>ChatGPT can be employed in diverse scenarios, including customer support, content generation, language translation, and much more.</p>
+        <h2>Natural Language Understanding</h2>
+        <p>With a robust understanding of natural language, ChatGPT can comprehend and interpret complex sentences, making it adept at extracting meaning from various forms of input.</p>
+
+        <h2>Contextual Responses</h2>
+        <p>One of ChatGPT's key strengths is its ability to maintain context throughout a conversation. It remembers previous interactions, allowing for more coherent and context-aware responses.</p>
+
+        <h2>Information Retrieval</h2>
+        <p>ChatGPT is a valuable tool for information retrieval. Whether you're looking for facts, details, or explanations, ChatGPT can provide relevant and accurate information from its extensive knowledge base.</p>
+
+        <h2>Applications</h2>
+        <p>ChatGPT finds applications across various domains, including customer support, content generation, language translation, code generation, and more. Its versatility makes it a powerful asset in a wide range of scenarios.</p>
+
+        <canvas id="capabilitiesChart" width="400" height="200"></canvas>
     </section>
 
     <footer>
@@ -101,6 +115,42 @@
             } else {
                 header.style.backgroundColor = '#141414';
                 body.style.backgroundColor = '#f8f8f8';
+            }
+        });
+
+        // JavaScript for creating a simple bar chart
+        var ctx = document.getElementById('capabilitiesChart').getContext('2d');
+        var capabilitiesChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Conversational AI', 'NLU', 'Contextual Responses', 'Info Retrieval', 'Applications'],
+                datasets: [{
+                    label: 'ChatGPT Capabilities',
+                    data: [90, 85, 88, 92, 95],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(75, 192, 192, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
             }
         });
     </script>
